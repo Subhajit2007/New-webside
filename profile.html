@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Profile Index</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Profile Index</h1>
+        <ul id="profileList">
+            <!-- Profiles will be dynamically added here -->
+        </ul>
+        <button onclick="addProfile()">Add Profile</button>
+    </div>
+    <script>
+        function addProfile() {
+    const profileList = document.getElementById('profileList');
+
+    // Prompt the user for a profile name
+    const profileName = prompt('Enter profile name:');
+    
+    // Create a new list item and add it to the list
+    if (profileName) {
+        const listItem = document.createElement('li');
+        listItem.textContent = profileName;
+        profileList.appendChild(listItem);
+    }
+}
+
+    </script>
+</body>
+</html>

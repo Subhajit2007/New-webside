@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .search-container {
+            position: relative;
+            max-width: 200px;
+            transition: max-width 0.3s ease;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 8px;
+        }
+
+        .search-button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="search-container">
+    <input type="text" class="search-input">
+    <div class="search-button" onclick="expandSearch()">
+        Search
+    </div>
+</div>
+
+<script>
+    function expandSearch() {
+        var container = document.querySelector('.search-container');
+        container.style.maxWidth = container.style.maxWidth === '200px' ? '300px' : '200px';
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+ .dark-body,.dark-header,.dark-main,.dark-aside,.dark-footer,.dark-button{
+  background-color: #323643;
+  color: #EEF5FF;
+}
+.dark-header,.dark-main,.dark-aside,.dark-footer,.dark-button{
+    border: 1px solid #ccc;
+}
+.dark-nav{
+  background-color: #EEF5FF;
+  
+}
+.dark-nav a{
+    color: #323643;
+}
