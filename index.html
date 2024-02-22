@@ -15,7 +15,7 @@
             flex-direction: row;
             justify-content: center;
         }
-        button {
+        #btn1 {
             height: 50px;
             width: 200px;
             text-transform: uppercase;
@@ -28,7 +28,7 @@
             transition: 1000ms ease-in;
 
         }
-        button:active {
+        #btn1:active {
             transform: scale(.85);
         }
     </style>
@@ -36,9 +36,10 @@
 <body>
 
 
-    <button>click 0 times</button>
+    <button id="btn1">click 0 times</button>
+    
     <script>
-        let btn = document.querySelector("button")
+        let btn = document.querySelector("#btn1")
         let body = document.querySelector("body")
 
         i = localStorage.getItem("clickRate")
