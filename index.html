@@ -12,8 +12,10 @@
     <style>
         body {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
+            
         }
         #btn1 {
             height: 50px;
@@ -31,6 +33,10 @@
         #btn1:active {
             transform: scale(.85);
         }
+        #reset{
+            height: 24px;
+            margin: 10px auto;
+        }
     </style>
 </head>
 <body>
@@ -38,7 +44,8 @@
 
     <button id="btn1">click 0 times</button>
     <button id="reset">Reset Click</button>
-    
-<script src="script.js" type="text/javascript" charset="utf-8"></script>
+<script src="./script.js"></script>
 </body>
+    
+
 </html>
