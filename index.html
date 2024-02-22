@@ -9,14 +9,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>page title</title>
-    <link rel="stylesheet" href="./style.css" type="text/css" media="all" />
+   <style>
+       body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+#btn1 {
+    height: 50px;
+    width: 200px;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    color: lightgreen;
+    background-color: blue;
+    border: 2px solid white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px blue;
+    transition: 1000ms ease-in;
+
+}
+#btn1:active {
+    transform: scale(.85);
+}
+#reset {
+    height: 24px;
+    margin: 10px auto;
+}
+   </style>
 </head>
 <body>
 
 
     <button id="btn1">click 0 times</button>
     <button id="reset">Reset Click</button>
-<script src="./script.js"></script>
+<script>
+        let btn = document.querySelector("#btn1")
+let btnreset = document.querySelector("#reset")
+let body = document.querySelector("body")
+
+i = localStorage.getItem("clickRate")
+
+
+
+btn.onclick = function() {
+
+    i++
+    btn.textContent = `click ${i} times`
+    localStorage.setItem("clickRate", `${i}`)
+}
+//setInterval(btn.onclick,100)
+body.onload = function() {
+    let i = localStorage.getItem("clickRate")
+    if (i == undefined || i == null) {
+        i = 0
+    }
+    console.log(i)
+    btn.textContent = `click ${i} times`
+
+
+}
+btnreset.onclick = function(){
+    localStorage.removeItem("clickRate")
+    location.reload()
+}
+</script>
 </body>
     
 
