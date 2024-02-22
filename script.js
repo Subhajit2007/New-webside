@@ -1,4 +1,4 @@
-let btn = document.querySelector("#btn1")
+    let btn = document.querySelector("#btn1")
 let btnreset = document.querySelector("#reset")
 let body = document.querySelector("body")
 
@@ -24,6 +24,6 @@ body.onload = function() {
 
 }
 btnreset.onclick = function(){
-    localStorage.remove("clickRate")
+    localStorage.removeItem("clickRate")
     location.reload()
 }
