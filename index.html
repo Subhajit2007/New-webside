@@ -27,80 +27,75 @@
             border: 2px solid white;
             border-radius: 5px;
             box-shadow: 2px 2px 10px blue;
-            transition: 1000ms ease-in;
+            transition: 1500ms ease-in;
 
         }
         #btn1:active {
-            transform: scale(.85);
+            transform: scale(.75);
         }
-        #reset {
+        #reset,#autoclick,#autoclickoff {
             height: 24px;
             margin: 10px auto;
-            
-        }
-        #autoclick{
-                margin: 10px auto;
-        }
-        #autoclickoff{
-            margin: 10px auto;
-        }
-    </style>
-</head>
-<body>
 
 
-    <button id="btn1">click 0 times</button>
-    <button id="reset">Reset Click</button>
-    <button id="autoclick">auto click on</button>
-    <button id="autoclickoff">auto click off</button>
-    <script>
-        let btn = document.querySelector("#btn1")
-        let btnreset = document.querySelector("#reset")
-        let autoClick = document.querySelector("#autoclick")
-        let autoClickOff = document.querySelector("#autoclickoff")
-        let body = document.querySelector("body")
-    </script>
-    <script>
-        
+        </style>
+    </head>
+    <body>
 
-        i = localStorage.getItem("clickRate")
+
+        <button id="btn1">click 0 times</button>
+
+        <button id="autoclick">auto click on</button>
+        <button id="autoclickoff">auto click off</button>
+        <button id="reset">Reset Click</button>
+        <script>
+            let btn = document.querySelector("#btn1")
+            let btnreset = document.querySelector("#reset")
+            let autoClick = document.querySelector("#autoclick")
+            let autoClickOff = document.querySelector("#autoclickoff")
+            let body = document.querySelector("body")
+        </script>
+        <script>
+
+
+            i = localStorage.getItem("clickRate")
 
 
 
-        btn.onclick = function() {
+            btn.onclick = function() {
 
-            i++
-            btn.textContent = `click ${i} times`
-            localStorage.setItem("clickRate", `${i}`)
-        }
-        //setInterval(btn.onclick,100)
-        body.onload = function() {
-            let i = localStorage.getItem("clickRate")
-            if (i == undefined || i == null) {
-                i = 0
+                i++
+                btn.textContent = `click ${i} times`
+                localStorage.setItem("clickRate", `${i}`)
+            }
+            //setInterval(btn.onclick,100)
+            body.onload = function() {
+                let i = localStorage.getItem("clickRate")
+                if (i == undefined || i == null) {
+                    i = 0
+                }
+
+                btn.textContent = `click ${i} times`
+
+
+            }
+            btnreset.onclick = function() {
+                localStorage.removeItem("clickRate")
+                location.reload()
             }
 
-            btn.textContent = `click ${i} times`
 
-
-        }
-        btnreset.onclick = function() {
-            localStorage.removeItem("clickRate")
-            location.reload()
-        }
-
-
-    </script>
-    <script>
-    var myInterval;
-autoClick.onclick = function(){
-     myInterval= setInterval(btn.onclick ,10)
-}
-autoClickOff.onclick = function(){
-    clearInterval(myInterval)
-}
-    </script>
-</body>
+        </script>
+        <script>
+            var myInterval;
+            autoClick.onclick = function() {
+                myInterval = setInterval(btn.onclick, 0)
+            }
+            autoClickOff.onclick = function() {
+                clearInterval(myInterval)
+            }
+        </script>
+    </body>
 
 
 </html>
