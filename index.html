@@ -36,15 +36,10 @@
         #reset,#autoclick,#autoclickoff {
             height: 24px;
             margin: 10px auto;
-
-
         </style>
     </head>
     <body>
-
-
         <button id="btn1">click 0 times</button>
-
         <button id="autoclick">auto click on</button>
         <button id="autoclickoff">auto click off</button>
         <button id="reset">Reset Click</button>
@@ -54,18 +49,18 @@
             let autoClick = document.querySelector("#autoclick")
             let autoClickOff = document.querySelector("#autoclickoff")
             let body = document.querySelector("body")
+            let stylejs = "color:red;background-color:yellow;padding:5px;border:1.5px solid black;border-radius:4px;font-weight:bold;text-transform:uppercase;"
         </script>
         <script>
-
-
             i = localStorage.getItem("clickRate")
-
-
-
             btn.onclick = function() {
-
                 i++
                 btn.textContent = `click ${i} times`
+                if (i == 1) {
+                    alert(`%cHurray...This is your first click on this button...`,style);
+                } else if (i%1000 == 0) {
+                    alert(`%cYou active 🏆 ${i} clicks...`,stylejs);
+                }
                 localStorage.setItem("clickRate", `${i}`)
             }
             //setInterval(btn.onclick,100)
@@ -74,17 +69,12 @@
                 if (i == undefined || i == null) {
                     i = 0
                 }
-
                 btn.textContent = `click ${i} times`
-
-
             }
             btnreset.onclick = function() {
                 localStorage.removeItem("clickRate")
                 location.reload()
             }
-
-
         </script>
         <script>
             var myInterval;
@@ -95,7 +85,8 @@
                 clearInterval(myInterval)
             }
         </script>
+        <script>
+            console.log("%cHallo world🌎!",stylejs)
+        </script>
     </body>
-
-
 </html>
