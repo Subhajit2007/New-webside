@@ -57,9 +57,11 @@
                 i++
                 btn.textContent = `click ${i} times`
                 if (i == 1) {
-                    alert(`%cHurray...This is your first click on this button...`,style);
+                    alert(`Hurray...This is your first click on this button...`)
+                    console.log(`%cHurray...This is your first click on this button...`,style);
                 } else if (i%1000 == 0) {
-                    alert(`%cYou active 🏆 ${i} clicks...`,stylejs);
+                    alert(`You achieve 🏆 ${i} clicks...`);
+                    console.log(`%cYou achieve 🏆 ${i} clicks...`,stylejs);
                 }
                 localStorage.setItem("clickRate", `${i}`)
             }
