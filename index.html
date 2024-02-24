@@ -10,9 +10,9 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>page title</title>
     <style>
-    *{
-        box-sizing: border-box;
-    }
+        * {
+            box-sizing: border-box;
+        }
         body {
             display: flex;
             flex-direction: column;
@@ -40,7 +40,7 @@
             height: 24px;
             margin: 10px auto;
         }
-        .achievementsBox{
+        .achievementsBox {
             margin: 10px auto;
             background-color: #0065A5;
             color: black;
@@ -50,107 +50,138 @@
             border: 3.5px solid gray;
             border-radius: 8px;
             padding: 0px 10px 0px 10px;
-            display:none;
-            
+            display: none;
+
             position: absolute;
         }
-        .heading{
-            color:  #004C6D;
+        .heading {
+            color: #004C6D;
             text-transform: uppercase;
             font-size: .96em;
             margin: 18px auto;
             background-color: #B5E9FF;
             padding: 9px 9px;
-            
+
             border-radius: 5px;
             transition: 300ms ease-in;
-            
+
         }
-        .heading:hover{
+        .heading:hover {
             background-color: whitesmoke;
         }
+        #closeBtn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.35em;
+            padding: 8px 12.5px;
+            background-color: white;
+            color: red;
+            border: 1.3px solid whitesmoke;
+            border-radius: 5px;
+            display: none;
+            transition: 700ms linear ease-in-out;
+        }
+        #achievements{
+                        position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.35em;
+            padding: 8px 8px;
+            background-color: white;
+            color: red;
+            border: 1.3px solid whitesmoke;
+            border-radius: 5px;
+            display: block;
+            transition: 700ms linear ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">click 0 times</button>
+    <button id="autoclick">auto click on</button>
+    <button id="autoclickoff">auto click off</button>
+    <button id="reset">Reset Click</button>
+    <button id="achievements">🕵🏻‍♂️</button>
+    <button id="closeBtn">X</button>
+    <div class="achievementsBox">
 
-        </style>
-    </head>
-    <body>
-        <button id="btn1">click 0 times</button>
-        <button id="autoclick">auto click on</button>
-        <button id="autoclickoff">auto click off</button>
-        <button id="reset">Reset Click</button>
-        <button id="achievements">All achievements</button>
-        <div class="achievementsBox">
-           
-        </div>
-        <script>
-            let btn = document.querySelector("#btn1")
-            let btnreset = document.querySelector("#reset")
-            let autoClick = document.querySelector("#autoclick")
-            let autoClickOff = document.querySelector("#autoclickoff")
-            let body = document.querySelector("body")
-            let stylejs = "color:red;background-color:yellow;padding:5px;border:1.5px solid black;border-radius:4px;font-weight:bold;text-transform:uppercase;"
-            let achievements = document.querySelector("#achievements")
-            let AchieveBox = document.querySelector(".achievementsBox")
-        </script>
-        <script>
-            i = localStorage.getItem("clickRate")
-            btn.onclick = function() {
-                i++
-                btn.textContent = `click ${i} times`
-                if (i == 1) {
-                    alert(`Hurray...This is your first click on this button...`)
-                    console.log(`%cHurray...This is your first click on this button...`,style);
-                } else if (i%1000 == 0) {
-                    alert(`You achieve 🏆 ${i} clicks...`);
-                    console.log(`%cYou achieve 🏆 ${i} clicks...`,stylejs);
-                }
-                localStorage.setItem("clickRate", `${i}`)
+    </div>
+    <script>
+        let btn = document.querySelector("#btn1")
+        let btnreset = document.querySelector("#reset")
+        let autoClick = document.querySelector("#autoclick")
+        let autoClickOff = document.querySelector("#autoclickoff")
+        let body = document.querySelector("body")
+        let stylejs = "color:red;background-color:yellow;padding:5px;border:1.5px solid black;border-radius:4px;font-weight:bold;text-transform:uppercase;"
+        let achievements = document.querySelector("#achievements")
+        let AchieveBox = document.querySelector(".achievementsBox")
+        let closeBtn = document.querySelector("#closeBtn")
+    </script>
+    <script>
+        i = localStorage.getItem("clickRate")
+        btn.onclick = function() {
+            i++
+            btn.textContent = `click ${i} times`
+            if (i == 1) {
+                alert(`Hurray...This is your first click on this button...`)
+                console.log(`%cHurray...This is your first click on this button...`, style);
+            } else if (i%1000 == 0) {
+                alert(`You achieve 🏆 ${i} clicks...`);
+                console.log(`%cYou achieve 🏆 ${i} clicks...`, stylejs);
             }
-            //setInterval(btn.onclick,100)
-            body.onload = function() {
-                let i = localStorage.getItem("clickRate")
-                if (i == undefined || i == null) {
-                    i = 0
-                }
-                btn.textContent = `click ${i} times`
+            localStorage.setItem("clickRate", `${i}`)
+        }
+        //setInterval(btn.onclick,100)
+        body.onload = function() {
+            let i = localStorage.getItem("clickRate")
+            if (i == undefined || i == null) {
+                i = 0
             }
-            btnreset.onclick = function() {
-                localStorage.removeItem("clickRate")
-                location.reload()
+            btn.textContent = `click ${i} times`
+        }
+        btnreset.onclick = function() {
+            localStorage.removeItem("clickRate")
+            location.reload()
+        }
+    </script>
+    <script>
+        var myInterval;
+        autoClick.onclick = function() {
+            myInterval = setInterval(btn.onclick, 0)
+        }
+        autoClickOff.onclick = function() {
+            clearInterval(myInterval)
+        }
+    </script>
+    <script>
+        console.log("%cHallo world🌎!", stylejs)
+    </script>
+    <script>
+
+        achievements.onclick = function() {
+            achievements.style.display = "none"
+            AchieveBox.style.display = "block"
+            closeBtn.style.display = "block"
+            AchieveBox.innerHTML = ""
+            let times = Math.round(i/1000)
+            for (x = 1; x <= times; x++) {
+
+                let achieveheading = document.createElement("h1")
+                let text = `${x} You achieve 🏆 ${x*1000} clicks...`
+                achieveheading.textContent = text
+                achieveheading.setAttribute("Class", "heading")
+                AchieveBox.appendChild(achieveheading)
+
             }
-        </script>
-        <script>
-            var myInterval;
-            autoClick.onclick = function() {
-                myInterval = setInterval(btn.onclick, 0)
-            }
-            autoClickOff.onclick = function() {
-                clearInterval(myInterval)
-            }
-        </script>
-        <script>
-            console.log("%cHallo world🌎!",stylejs)
-        </script>
-        <script>
-           
-            achievements.onclick = function(){
-                AchieveBox.style.display = "block"
-                AchieveBox.innerHTML = ""
-               let times = Math.round(i/1000)  
-               for(x=1;x<=times;x++){
-                   
-                  let achieveheading = document.createElement("h1")
-                  let text = `${x} You achieve 🏆 ${x*1000} clicks...`
-                  achieveheading.textContent = text
-                  achieveheading.setAttribute("Class","heading")
-                  AchieveBox.appendChild(achieveheading)
-                  
-               }
-               let closeDiv = document.createElement("button")
-               let closeText= "x"
-               closeDiv.textContent = closeText
-               console.log(closeDiv)
-               
-            }
-        </script>
-    </body>
+
+
+        }
+        closeBtn.onclick = function(){
+            AchieveBox.style.display = "none"
+            closeBtn.style.display = "none"
+            achievements.style.display = "block"
+        }
+    </script>
+</body>
 </html>
