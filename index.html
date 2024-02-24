@@ -10,6 +10,9 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>page title</title>
     <style>
+    *{
+        box-sizing: border-box;
+    }
         body {
             display: flex;
             flex-direction: column;
@@ -36,6 +39,37 @@
         #reset,#autoclick,#autoclickoff {
             height: 24px;
             margin: 10px auto;
+        }
+        .achievementsBox{
+            margin: 10px auto;
+            background-color: #0065A5;
+            color: black;
+            height: 500px;
+            width: 94vw;
+            overflow: auto;
+            border: 3.5px solid gray;
+            border-radius: 8px;
+            padding: 0px 10px 0px 10px;
+            display:none;
+            
+            position: absolute;
+        }
+        .heading{
+            color:  #004C6D;
+            text-transform: uppercase;
+            font-size: .96em;
+            margin: 18px auto;
+            background-color: #B5E9FF;
+            padding: 9px 9px;
+            
+            border-radius: 5px;
+            transition: 300ms ease-in;
+            
+        }
+        .heading:hover{
+            background-color: whitesmoke;
+        }
+
         </style>
     </head>
     <body>
@@ -45,7 +79,7 @@
         <button id="reset">Reset Click</button>
         <button id="achievements">All achievements</button>
         <div class="achievementsBox">
-            
+           
         </div>
         <script>
             let btn = document.querySelector("#btn1")
@@ -99,9 +133,22 @@
         <script>
            
             achievements.onclick = function(){
-                let achieveh1 = document.createElement("h1")
+                AchieveBox.style.display = "block"
+                AchieveBox.innerHTML = ""
                let times = Math.round(i/1000)  
-               
+               for(x=1;x<=times;x++){
+                   
+                  let achieveheading = document.createElement("h1")
+                  let text = `${x} You achieve 🏆 ${x*1000} clicks...`
+                  achieveheading.textContent = text
+                  achieveheading.setAttribute("Class","heading")
+                  AchieveBox.appendChild(achieveheading)
+                  
+               }
+               let closeDiv = document.createElement("button")
+               let closeText= "x"
+               closeDiv.textContent = closeText
+               console.log(closeDiv)
                
             }
         </script>
