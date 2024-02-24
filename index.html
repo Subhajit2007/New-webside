@@ -43,6 +43,10 @@
         <button id="autoclick">auto click on</button>
         <button id="autoclickoff">auto click off</button>
         <button id="reset">Reset Click</button>
+        <button id="achievements">All achievements</button>
+        <div class="achievementsBox">
+            
+        </div>
         <script>
             let btn = document.querySelector("#btn1")
             let btnreset = document.querySelector("#reset")
@@ -50,6 +54,8 @@
             let autoClickOff = document.querySelector("#autoclickoff")
             let body = document.querySelector("body")
             let stylejs = "color:red;background-color:yellow;padding:5px;border:1.5px solid black;border-radius:4px;font-weight:bold;text-transform:uppercase;"
+            let achievements = document.querySelector("#achievements")
+            let AchieveBox = document.querySelector(".achievementsBox")
         </script>
         <script>
             i = localStorage.getItem("clickRate")
@@ -89,6 +95,15 @@
         </script>
         <script>
             console.log("%cHallo world🌎!",stylejs)
+        </script>
+        <script>
+           
+            achievements.onclick = function(){
+                let achieveh1 = document.createElement("h1")
+               let times = Math.round(i/1000)  
+               
+               
+            }
         </script>
     </body>
 </html>
