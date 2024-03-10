@@ -1,4 +1,4 @@
-# **New-web-Game**
+# [**New-web-Game**](https://subhajit2007.github.io/New-webside/)
 ## Click to count clicks
 >this webside is like a game .When you click on this specifi button and play the game.
 ## Mods
