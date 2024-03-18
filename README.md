@@ -7,4 +7,4 @@
 > get **Inspect Element**.
 > click count store in **LocalStorage**
 
-![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.]()
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](Screenshot_2024_0310_180149.png)
